@@ -1,3 +1,4 @@
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
@@ -59,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               SizedBox(height: 120.h),
               CustomButton(
                   onTap: () {
-                    //  Get.toNamed(AppRoutes.SIGN_IN);
+                     Get.toNamed(AppRoutes.signInScreen);
                   },
                   text: 'GET STARTED'),
               SizedBox(height: 4.h),
