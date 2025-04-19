@@ -1,5 +1,7 @@
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
+import 'package:fertie_app/utils/app_strings.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/base/custom_text.dart';
@@ -7,6 +9,7 @@ import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 
 class SignInScreen extends StatefulWidget {
@@ -23,7 +26,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: AppColors.whiteColor,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         title: Text("Sign In",style: AppStyles.fontSize18()),
         centerTitle: true,
@@ -39,22 +42,13 @@ class _SignInScreenState extends State<SignInScreen> {
 
               SizedBox(height: 20.h),
               CustomTextField(
-                  filColor: AppColors.whiteColor,
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.asset(AppIcons.eyeIcon),
-                  ),
+                  filColor: AppColors.white,
                   hintText: 'Enter Email',
                   controller: emailCtrl),
               SizedBox(height: 16.h),
               CustomTextField(
-                  filColor: AppColors.whiteColor,
-                  isPassword: true,
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.asset(AppIcons.eyeIcon),
-                  ),
-                  hintText: 'Enter Password',
+                  filColor: AppColors.white,
+                  hintText: 'Enter name',
                   controller: passCtrl),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +60,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     child: CustomText(
                       fontWeight: FontWeight.bold,
-                      text: 'AppString.forgotPassword.tr',
+                      text: 'Forgot Password?',
                       color: AppColors.primaryColor,
                     ),
                   ),
@@ -77,23 +71,22 @@ class _SignInScreenState extends State<SignInScreen> {
               /// Sing In Button
               CustomButton(
                 onTap: () {
-                 // Get.toNamed(AppRoutes.ROLE_SUPERVISOR_HOME_SCREEN);
+                  Get.toNamed(AppRoutes.homeScreen);
                 },
-                text:' AppString.signInText.tr',
+                text:'Sign In',
               ),
               ///==================>> Don't have and Account <===================
               SizedBox(height: 10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${"AppString.doNotHaveAccount.t"}",
-                  ),
+                  Text("${AppStrings.doNotHaveAccount.tr}"),
                   TextButton(
                       onPressed: () {
                        // Get.toNamed(AppRoutes.SIGNUP);
                       },
                       child: CustomText(
-                        text: "AppString.signUpText.tr",
+                        text: "Sign Up",
                         color: AppColors.primaryColor,
                         fontWeight: FontWeight.w600,
                       ))
