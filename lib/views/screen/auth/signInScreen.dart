@@ -28,24 +28,37 @@ class _SignInScreenState extends State<SignInScreen> {
     return Scaffold(
       backgroundColor: AppColors.white,
       appBar: AppBar(
-        title: Text("Sign In",style: AppStyles.fontSize18()),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w,),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 40.h),
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: 8.r),
+                child: Text('Sign Up',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
+              ),
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: 8.r),
+                child: Text('Welcome!',style: AppStyles.fontSize16(color: AppColors.greyColor)),
+              ),
               // Text sections
-
-              SizedBox(height: 20.h),
+              SizedBox(height: 40.h),
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: 8.r),
+                child: Text('Email',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+              ),
               CustomTextField(
                   filColor: AppColors.white,
                   hintText: 'Enter Email',
                   controller: emailCtrl),
-              SizedBox(height: 16.h),
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: 8.r),
+                child: Text('Name',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+              ),
               CustomTextField(
                   filColor: AppColors.white,
                   hintText: 'Enter name',

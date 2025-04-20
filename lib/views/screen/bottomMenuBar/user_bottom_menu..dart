@@ -33,9 +33,10 @@ class UserBottomMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     List<BottomNavigationBarItem> menuItems = [
-      getItem(menuIndex == 0 ? AppIcons.eyeIcon : AppIcons.eyeOffIcon, 'Project', theme, 0),
-      getItem(menuIndex == 1 ? AppIcons.eyeIcon : AppIcons.eyeOffIcon,'Activates', theme, 1),
-      getItem(menuIndex == 2 ? AppIcons.eyeIcon : AppIcons.eyeOffIcon, 'More', theme, 2),
+      getItem(menuIndex == 0 ? AppIcons.homeIcon : AppIcons.homeFillUpIcon, 'Home', theme, 0),
+      getItem(menuIndex == 1 ? AppIcons.calenderIcon : AppIcons.calenderfillup,'Calender', theme, 1),
+      getItem(menuIndex == 2 ? AppIcons.profileIcon : AppIcons.profileFillup, 'Profile', theme, 2),
+      getItem(menuIndex == 3 ? AppIcons.notificationIcon : AppIcons.notificationFillup, 'Notification', theme, 3),
     ];
 
     return BottomNavigationBar(
