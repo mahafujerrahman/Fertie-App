@@ -33,10 +33,10 @@ class UserBottomMenu extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     List<BottomNavigationBarItem> menuItems = [
-      getItem(menuIndex == 0 ? AppIcons.homeIcon : AppIcons.homeFillUpIcon, 'Home', theme, 0),
-      getItem(menuIndex == 1 ? AppIcons.calenderIcon : AppIcons.calenderfillup,'Calender', theme, 1),
-      getItem(menuIndex == 2 ? AppIcons.profileIcon : AppIcons.profileFillup, 'Profile', theme, 2),
-      getItem(menuIndex == 3 ? AppIcons.notificationIcon : AppIcons.notificationFillup, 'Notification', theme, 3),
+      getItem(menuIndex == 0 ? AppIcons.homeFillUpIcon : AppIcons.homeFillUpIcon, 'Home', theme, 0),
+      getItem(menuIndex == 1 ? AppIcons.calenderfillup : AppIcons.calenderIcon,'Calender', theme, 1),
+      getItem(menuIndex == 2 ? AppIcons.profileFillup : AppIcons.profileIcon, 'Profile', theme, 2),
+      getItem(menuIndex == 3 ? AppIcons.notificationFillup : AppIcons.notificationIcon, 'Notification', theme, 3),
     ];
 
     return BottomNavigationBar(
@@ -51,10 +51,13 @@ class UserBottomMenu extends StatelessWidget {
             Get.offAndToNamed(AppRoutes.homeScreen);
             break;
           case 1:
-            Get.offAndToNamed(AppRoutes.onboardingScreen);
+            Get.offAndToNamed(AppRoutes.calenderScreen);
             break;
           case 2:
-            Get.offAndToNamed(AppRoutes.onboardingScreen);
+            Get.offAndToNamed(AppRoutes.profileScreen);
+            break;
+          case 3:
+            Get.offAndToNamed(AppRoutes.notificationScreen);
             break;
 
         }
