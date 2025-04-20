@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: AppColors.white,
       bottomNavigationBar: UserBottomMenu(0),
       appBar: AppBar(
-        title: const Text('Manager Project'),
+        title: const Text('Home'),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),

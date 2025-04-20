@@ -21,7 +21,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
       backgroundColor: AppColors.white,
       bottomNavigationBar: UserBottomMenu(1),
       appBar: AppBar(
-        title: const Text('Manager Project'),
+        title: const Text('Calender'),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -43,7 +43,6 @@ class _CalenderScreenState extends State<CalenderScreen> {
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
-
                       const SizedBox(height: 16),
                     ],
                   );

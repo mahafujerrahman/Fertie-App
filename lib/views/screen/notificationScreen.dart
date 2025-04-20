@@ -5,23 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<NotificationScreen> createState() => _NotificationScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _NotificationScreenState extends State<NotificationScreen> {
   TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
-      bottomNavigationBar: UserBottomMenu(2),
+      bottomNavigationBar: UserBottomMenu(3),
       appBar: AppBar(
-        title: const Text('Manager Project'),
+        title: const Text('Notification'),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),

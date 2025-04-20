@@ -1,10 +1,10 @@
 import 'package:fertie_app/onboarding_screen.dart';
 import 'package:fertie_app/splash_screen.dart';
 import 'package:fertie_app/views/screen/auth/signInScreen.dart';
-import 'package:fertie_app/views/screen/bottomMenuBar/calenderScreen.dart';
-import 'package:fertie_app/views/screen/bottomMenuBar/notificationScreen.dart';
-import 'package:fertie_app/views/screen/bottomMenuBar/profileScreen.dart';
+import 'package:fertie_app/views/screen/calenderScreen.dart';
+import 'package:fertie_app/views/screen/notificationScreen.dart';
 import 'package:fertie_app/views/screen/homeScreen.dart';
+import 'package:fertie_app/views/screen/profileScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
