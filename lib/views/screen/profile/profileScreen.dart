@@ -154,7 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
                           onTap: (){
-                            Get.toNamed(AppRoutes.personalInformationScreen);
+                            Get.toNamed(AppRoutes.resetPasswordScreen);
                           },
                           title: 'Change Password'),
 
@@ -168,7 +168,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.logoutIcon),
                           onTap: (){
-                            Get.toNamed(AppRoutes.personalInformationScreen);
+                            _showLogOutBottomSheet(context);
                           },
                           title: 'Log Out'),
                     ],
@@ -179,6 +179,98 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  //=========================>>>>>  Log out Custom BottomSheet    <<<================================
+  void _showLogOutBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20.r),
+        ),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20.r),
+              topRight: Radius.circular(20.r),
+            ),
+            color: AppColors.white,
+          ),
+          height: 265.h,
+          padding: EdgeInsets.all(16.r),
+          child: Column(
+            children: [
+              Container(
+                width: 50.w,
+                height: 5.h,
+                decoration: BoxDecoration(
+                  color: AppColors.primaryColor,
+                  borderRadius: BorderRadius.circular(8.h),
+                ),
+              ),
+              SizedBox(height: 20.h),
+              Text('Logout', style: AppStyles.fontSize24(color: AppColors.primaryColor,fontWeight: FontWeight.w600),),
+              SizedBox(height: 14.h),
+              Text('Are you sure?',
+                style: AppStyles.fontSize18(color: AppColors.primaryColor),
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                children: [
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 58),
+                        backgroundColor:  AppColors.fillColor,
+                        side: BorderSide(
+                            width: 1,
+                            color: AppColors.greyColor),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      child: Text('Cancel',
+                        style: AppStyles.fontSize18(color: AppColors.primaryColor),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 16.w),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () async{
+                       /* await PrefsHelper.remove(AppConstants.isLogged);
+                        await PrefsHelper.remove(AppConstants.bearerToken);
+                        await PrefsHelper.remove(AppConstants.role);
+                        *//*  final socketService = Get.find<UniversalSocketService>();
+                        socketService.disconnect();*//*
+                        //   await PrefsHelper.remove(AppConstants.fcmToken);*/
+                        Get.offAllNamed(AppRoutes.signInScreen);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(double.infinity, 58),
+                        backgroundColor: AppColors.primaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100.r),
+                        ),
+                      ),
+                      child: Text('Yes',
+                        style:  AppStyles.fontSize18(color: AppColors.white),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 

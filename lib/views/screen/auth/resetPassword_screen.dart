@@ -3,6 +3,7 @@ import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
+import 'package:fertie_app/views/base/custom_text.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -69,6 +70,23 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   filColor: AppColors.white,
                   hintText: 'Enter password',
                   controller: passCtrl),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  //=================================> Forgot Password Button <================================
+                  TextButton(
+                    onPressed: () {
+                      Get.toNamed(AppRoutes.forgetPasswordScreen);
+                    },
+                    child: CustomText(
+                      fontWeight: FontWeight.bold,
+                      text: 'Forgot Password?',
+                      color: AppColors.blueColor,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ],
+              ),
 
 
               SizedBox(height: 50.h),
