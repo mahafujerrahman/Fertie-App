@@ -12,6 +12,17 @@ class AppIcons{
   static String notificationIcon = "$baseUrl/notification_icon.svg";
   static String calenderfillup = "$baseUrl/calenderfillup.svg";
   static String calenderIcon = "$baseUrl/calender.svg";
+  static String googleIcon = "$baseUrl/googleIcon.svg";
+  static String appleIcon = "$baseUrl/appleIcon.svg";
+  static String changedIcon = "$baseUrl/changedIcon.svg";
+  static String listTileArrowIcon = "$baseUrl/listTileArrowIcon.svg";
+  static String personalInfoIcon = "$baseUrl/personalInfoIcon.svg";
+  static String updateAccountIcon = "$baseUrl/updateAccountIcon.svg";
+  static String loveIcon = "$baseUrl/loveIcon.svg";
+  static String pinChnageIcon = "$baseUrl/pinChnageIcon.svg";
+  static String helpIcon = "$baseUrl/helpIcon.svg";
+  static String logoutIcon = "$baseUrl/logout.svg";
+  static String passwordIcon = "$baseUrl/password.svg";
 
 
 

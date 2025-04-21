@@ -119,7 +119,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         prefixIconColor: AppColors.iconGrayColor,
         labelText: widget.labelText,
         hintText: widget.hintText,
-        hintStyle: TextStyle(color: AppColors.hintColor, fontFamily: 'OpenSans'),
+        hintStyle: TextStyle(color: AppColors.hintColor, fontFamily: 'Nunito'),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
           borderSide: BorderSide(

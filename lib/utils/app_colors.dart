@@ -7,11 +7,14 @@ class AppColors{
   static const Color iconGrayColor = Color(0xFF767676);
   static const Color secondatyColor = Color(0xFF193664);
   static const Color color004080 = Color(0xFF004080);
+  static const Color colorF7D6D1 = Color(0xFFF7D6D1);
+  static Color subTextColor = const Color(0xFF888888);
 
 
   static Color blackColor=const Color(0xFF010101);
+  static Color color565656 =const Color(0xFF565656);
   static Color receivedChatColor=const Color(0xFF202B33);
-  static Color userChatColor=const Color(0xFF217CC2);
+  static Color blueColor=const Color(0xFF217CC2);
   static Color cardColor = const Color(0xFFEDF2F4);
   static Color color5C5C5C = const Color(0xFF5C5C5C);
   static Color borderColor = const Color(0xFFB0B0B0);
@@ -19,7 +22,7 @@ class AppColors{
   static Color white = const Color(0xFFFFFFFF);
   static Color buttonColor = const Color(0xFFE7E7FE);
 
-  static Color subTextColor = const Color(0xFFE8E8E8);
+
   static Color color1E66CA = const Color(0xFF1E66CA);
   static Color hintColor = const Color(0xFFB5B5B5);
   static Color greyColor = const Color(0xFFB5B5B5);

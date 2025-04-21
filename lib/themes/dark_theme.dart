@@ -4,7 +4,7 @@ import '../utils/app_colors.dart';
 
 
 ThemeData dark({Color color = const Color(0xFF2683EB)}) => ThemeData(
-  fontFamily: 'OpenSans',
+  fontFamily: 'Nunito',
   primaryColor: color,
   scaffoldBackgroundColor:AppColors.blackColor,
   secondaryHeaderColor:  color.withOpacity(0.4),

@@ -48,6 +48,7 @@ dependencies:
   shared_preferences: ^2.5.3
   geolocator: ^14.0.0
   intl: ^0.20.2
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -94,13 +95,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-Regular.ttf
 
-    - family: OpenSans
+    - family: Nunito
       fonts:
-        - asset: assets/fonts/OpenSans-Regular.ttf
+        - asset: assets/fonts/Nunito-Regular.ttf
 
-    - family: Raleway
-      fonts:
-        - asset: assets/fonts/Raleway-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

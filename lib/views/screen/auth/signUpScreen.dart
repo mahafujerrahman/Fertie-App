@@ -12,14 +12,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController emailCtrl = TextEditingController();
   TextEditingController passCtrl = TextEditingController();
   @override
@@ -39,11 +39,11 @@ class _SignInScreenState extends State<SignInScreen> {
               SizedBox(height: 40.h),
               Padding(
                 padding:  EdgeInsets.symmetric(vertical: 8.r),
-                child: Text('Login',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
+                child: Text('Sign Up',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
               ),
               Padding(
                 padding:  EdgeInsets.symmetric(vertical: 8.r),
-                child: Text('Welcome Back! We\'ve Missed You.',style: AppStyles.fontSize16(color: AppColors.greyColor)),
+                child: Text('Welcome!',style: AppStyles.fontSize16(color: AppColors.greyColor)),
               ),
               // Text sections
               SizedBox(height: 8.h),
@@ -57,52 +57,61 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: emailCtrl),
               Padding(
                 padding:  EdgeInsets.symmetric(vertical: 8.r),
-                child: Text('Password',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                child: Text('Name',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
               ),
               CustomTextField(
                   filColor: AppColors.white,
-                  hintText: 'Enter Password',
+                  hintText: 'Enter name',
                   controller: passCtrl),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  //=================================> Forgot Password Button <================================
-                  TextButton(
-                    onPressed: () {
-                        Get.toNamed(AppRoutes.forgetPasswordScreen);
-                    },
-                    child: CustomText(
-                      fontWeight: FontWeight.bold,
-                      text: 'Forgot Password?',
-                      color: AppColors.blueColor,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ],
-              ),
+
 
               SizedBox(height: 20.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 20.h),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20.w,vertical: 8.h),
+                          child: Text('Or continue with',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                        ),
+                       Row(
+                         children: [
+                           SvgPicture.asset(AppIcons.googleIcon),
+                           SizedBox(width: 16.w),
+                           SvgPicture.asset(AppIcons.appleIcon),
+                         ],
+                       ),
 
+
+                      ],
+                    ),
+                  ],
+                ),
+              ),
               /// Sing In Button
               CustomButton(
                 onTap: () {
                   Get.toNamed(AppRoutes.homeScreen);
                 },
-                text:'Log In',
+                text:'Sign In',
               ),
-
-              ///==================> Have and Account <===================
+              ///==================>> Don't have and Account <===================
               SizedBox(height: 10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("${AppStrings.doNotHaveAccount.tr}"),
+                  Text("${AppStrings.alreadyHaveAccount.tr}"),
                   TextButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.signUpScreen);
+                        Get.toNamed(AppRoutes.signInScreen);
                       },
                       child: CustomText(
-                        text: "Sign Up",
+                        text: "Sign In",
                         color: AppColors.primaryColor,
                         fontWeight: FontWeight.w600,
                       ))

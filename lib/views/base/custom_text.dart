@@ -47,10 +47,11 @@ class CustomText extends StatelessWidget {
         style: TextStyle(
           decoration: decoration,
           fontSize: fontSize,
-          decorationColor: AppColors.primaryColor,
-          fontFamily: fontName ?? "OpenSans",
+          decorationColor: AppColors.blueColor,
+          fontFamily: fontName ?? "Nunito",
           fontWeight: fontWeight,
           color: color,
+          decorationThickness: 1.5,
         ),
       ),
     );
