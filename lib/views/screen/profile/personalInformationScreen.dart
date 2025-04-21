@@ -1,4 +1,10 @@
+import 'package:fertie_app/helpers/route.dart';
+import 'package:fertie_app/utils/app_colors.dart';
+import 'package:fertie_app/utils/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class PersonalInformationScreen extends StatelessWidget {
   const PersonalInformationScreen({super.key});
@@ -6,81 +12,51 @@ class PersonalInformationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        title: const Text('Personal Information'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.close),
-            onPressed: () {
-              // Handle close action (e.g., navigate back)
-              Navigator.pop(context);
-            },
-          ),
-        ],
+        centerTitle: true,
+        title: Text('Personal Information'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Personal Information title
-            Text(
-              'Personal Information',
-
-            ),
-            const SizedBox(height: 16.0),
 
             // Name Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Name'),
-                Text(
-                  'Linfsay',
-
-                ),
+                Text('Name'),
+                Text('Linfsay',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                SizedBox(height: 16.h),
+                Text('Age'),
+                Text('25',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                SizedBox(height: 16.h),
+                Text('Email'),
+                Text('linfsay@gmail.com',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                SizedBox(height: 16.h),
               ],
             ),
-            const Divider(),
-
-            // Age Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Age'),
-                Text(
-                  '25',
-
-                ),
-              ],
-            ),
-            const Divider(),
-
-            // Email Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text('Email'),
-                Text(
-                  'Linfsay@gmail.com',
-
-                ),
-              ],
-            ),
-            const Divider(),
+            
 
             // Edit Button
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {
-                  // Handle Edit functionality
-                },
-                child: const Text(
-                  'Edit',
-                  style: TextStyle(color: Colors.orange),
+            Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () {
+                   Get.toNamed(AppRoutes.editPersonalInformationScreen);
+                  },
+                  child: Row(
+                    children: [
+                      Text('Edit',style: AppStyles.fontSize20(color:AppColors.primaryColor,fontWeight: FontWeight.w600)),
+                      SizedBox(width: 8.w),
+                      Icon(Icons.edit_note,color: AppColors.primaryColor,size: 30.sp),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ],
         ),
