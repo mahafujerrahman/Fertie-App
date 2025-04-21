@@ -218,7 +218,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Text('Are you sure?',
                 style: AppStyles.fontSize18(color: AppColors.primaryColor),
               ),
-              SizedBox(height: 20.h),
+              // SizedBox(height: 20.h),
               Row(
                 children: [
                   Expanded(
