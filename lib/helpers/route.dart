@@ -10,6 +10,7 @@ import 'package:fertie_app/views/screen/auth/signUpScreen.dart';
 import 'package:fertie_app/views/screen/calender/calenderScreen.dart';
 import 'package:fertie_app/views/screen/notification/notificationScreen.dart';
 import 'package:fertie_app/views/screen/home/homeScreen.dart';
+import 'package:fertie_app/views/screen/profile/personalInformationScreen.dart';
 import 'package:fertie_app/views/screen/profile/profileScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
@@ -29,6 +30,7 @@ class AppRoutes{
   static String codeVerifyEmailScreen = "/CodeVerifyEmailScreen";
   static String forgetPasswordScreen = "/forgetPasswordScreen";
   static String resetPasswordScreen = "/resetPasswordScreen";
+  static String personalInformationScreen = "/personalInformationScreen";
 
 
 
@@ -56,6 +58,7 @@ class AppRoutes{
 
    //Profile
    GetPage(name:profileScreen, page: ()=> ProfileScreen(),transition: Transition.noTransition),
+   GetPage(name:personalInformationScreen, page: ()=> PersonalInformationScreen(),transition: Transition.noTransition),
 
 
    //Notification

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/views/base/custom_list_tile.dart';
 import 'package:flutter/foundation.dart';
@@ -122,39 +123,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       CustomListTile(
                         prefixIcon: SvgPicture.asset(AppIcons.personalInfoIcon),
                         suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                        onTap: (){},
+                        onTap: (){
+                          Get.toNamed(AppRoutes.personalInformationScreen);
+                        },
                         title: 'Personal Information'),
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.updateAccountIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                          onTap: (){},
+                          onTap: (){
+                          //  Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Upgrade Account Type'),
 
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.loveIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                          onTap: (){},
+                          onTap: (){
+                            //Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Period and Cycle settings'),
 
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.pinChnageIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Change Access PIN Settings'),
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.passwordIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Change Password'),
 
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.helpIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Help'),
                       CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.logoutIcon),
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(AppRoutes.personalInformationScreen);
+                          },
                           title: 'Log Out'),
                     ],
                   ),
