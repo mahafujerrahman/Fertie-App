@@ -23,6 +23,8 @@ class AppIcons{
   static String helpIcon = "$baseUrl/helpIcon.svg";
   static String logoutIcon = "$baseUrl/logout.svg";
   static String passwordIcon = "$baseUrl/password.svg";
+  static String accessPinIcon = "$baseUrl/accessPinIcon.svg";
+  static String touchIcon = "$baseUrl/touchIcon.svg";
 
 
 

@@ -1,8 +1,13 @@
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
+import 'package:fertie_app/utils/app_strings.dart';
+import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -31,34 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomTextField(
-                controller: textEditingController,
-                hintText: "Search Project",
-              ),
-              SizedBox(height: 16.h),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
+              CustomButton(onTap: (){
+                Get.toNamed(AppRoutes.personalizeScreen);
 
-                      const SizedBox(height: 16),
-                    ],
-                  );
-                },
-              ),
+              }, text: "Personalize Journey 🧡")
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){
-       //   Get.toNamed(AppRoutes.projectCreateScreen);
-        },
-        backgroundColor: AppColors.primaryColor,
-        child: Icon(Icons.add),
       ),
     );
   }

@@ -28,7 +28,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.secondColor,
       bottomNavigationBar: UserBottomMenu(2),
       appBar: AppBar(
         title: const Text('Profile'),
@@ -147,7 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           prefixIcon: SvgPicture.asset(AppIcons.pinChnageIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
                           onTap: (){
-                            Get.toNamed(AppRoutes.personalInformationScreen);
+                            Get.toNamed(AppRoutes.setAccessPinScreen);
                           },
                           title: 'Change Access PIN Settings'),
                       CustomListTile(
@@ -162,7 +162,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           prefixIcon: SvgPicture.asset(AppIcons.helpIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
                           onTap: (){
-                            Get.toNamed(AppRoutes.personalInformationScreen);
+                            Get.toNamed(AppRoutes.helpScreen);
                           },
                           title: 'Help'),
                       CustomListTile(
