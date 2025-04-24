@@ -1,7 +1,7 @@
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
-import 'package:fertie_app/views/base/custom_text_field.dart';
+
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
 import 'package:fertie_app/views/screen/calender/datStatusWidget.dart';
 import 'package:flutter/material.dart';
@@ -31,16 +31,15 @@ class _CalenderScreenState extends State<CalenderScreen> {
     super.initState();
     _events = {
       DateTime.utc(2025, 4, 5): ['ovulation'],
-      DateTime.utc(2025, 4, 10): ['dot', 'menstruation'],
-      DateTime.utc(2025, 4, 12): ['ovulation'],
+      DateTime.utc(2025, 4, 10): ['today'],
+      DateTime.utc(2025, 4, 12): ['today'],
       DateTime.utc(2025, 4, 16): ['ovulation'],
       DateTime.utc(2025, 4, 17): ['ovulation'],
-      DateTime.utc(2025, 4, 18): ['ovulation'],
+      DateTime.utc(2025, 4, 18): ['fertile'],
       DateTime.utc(2025, 4, 2): ['menstruation'],
-      DateTime.utc(2025, 4, 3): ['menstruation'],
-      DateTime.utc(2025, 4, 4): ['menstruation'],
+      DateTime.utc(2025, 4, 3): ['ovulation'],
       DateTime.utc(2025, 4, 1): ['menstruation'],
-      DateTime.utc(2025, 4, 5): ['ovulation', 'menstruation'],
+      DateTime.utc(2025, 4, 5): ['ovulation'],
     };
   }
 
@@ -143,27 +142,47 @@ class _CalenderScreenState extends State<CalenderScreen> {
                           mainAxisSize: MainAxisSize.min,
                           children:
                           dayEvents.map((event) {
-                            if (event == 'dot') {
+                            if (event == 'today') {
                               return Container(
                                 height: 5.h,
-                                width: 5.w,
+                                width: 48.w,
                                 margin: EdgeInsets.symmetric(horizontal: 0.5),
                                 decoration: BoxDecoration(
-                                  color: Colors.green,
-                                  shape: BoxShape.circle,
+                                  color: AppColors.primaryColor,
+                                  shape: BoxShape.rectangle,
                                 ),
                               );
-                            } else if (event == 'ovulation') {
-                              return Icon(
-                                Icons.linear_scale,
-                                color: AppColors.color7D9EBB,
-                                size: 20.sp,
+                            }
+                            else if (event == 'fertile') {
+                              return Container(
+                                height: 5.h,
+                                width: 48.w,
+                                margin: EdgeInsets.symmetric(horizontal: 0.5),
+                                decoration: BoxDecoration(
+                                  color: AppColors.colorDFC7FF,
+                                  shape: BoxShape.rectangle,
+                                ),
+                              );
+                            }
+                            else if (event == 'ovulation') {
+                              return Container(
+                                height: 5.h,
+                                width: 48.w,
+                                margin: EdgeInsets.symmetric(horizontal: 0.5),
+                                decoration: BoxDecoration(
+                                  color: AppColors.color7D9EBB,
+                                  shape: BoxShape.rectangle,
+                                ),
                               );
                             } else if (event == 'menstruation') {
-                              return Icon(
-                                Icons.linear_scale,
-                                color: Colors.red,
-                                size: 20.sp,
+                              return Container(
+                                height: 5.h,
+                                width: 48.w,
+                                margin: EdgeInsets.symmetric(horizontal: 0.5),
+                                decoration: BoxDecoration(
+                                  color: AppColors.colorFF5653,
+                                  shape: BoxShape.rectangle,
+                                ),
                               );
                             }
                             return SizedBox.shrink();

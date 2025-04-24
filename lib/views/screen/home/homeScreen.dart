@@ -1,6 +1,7 @@
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_strings.dart';
+import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
@@ -23,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.secondColor,
       bottomNavigationBar: UserBottomMenu(0),
       appBar: AppBar(
         title: const Text('Home'),
@@ -39,7 +40,58 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomButton(onTap: (){
                 Get.toNamed(AppRoutes.personalizeScreen);
 
-              }, text: "Personalize Journey 🧡")
+              }, text: "Personalize Journey 🧡"),
+              SizedBox(height: 10.h),
+              Text('Today\'s Rundown :',style: AppStyles.fontSize16(fontWeight: FontWeight.bold)),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.h),
+                child: Container(
+                  height: 100.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.colorE0DCD2,
+                    border: Border.all(width: 1.w, color: AppColors.subTextColor),
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Phase'),
+                            Text('Menstrual',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Phase'),
+                            Text('Very Low',
+                                style: AppStyles.fontSize16(
+                                    fontWeight: FontWeight.w600,
+                                    decoration: TextDecoration.underline)
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Cycle Day'),
+                            Text('4',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              )
+
             ],
           ),
         ),

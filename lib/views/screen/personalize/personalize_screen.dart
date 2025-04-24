@@ -9,8 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-
-
 class PersonalizeScreen extends StatefulWidget {
   PersonalizeScreen({super.key});
 
@@ -40,7 +38,7 @@ class _PersonalizeScreenState extends State<PersonalizeScreen> {
               padding: const EdgeInsets.all(8.0),
               child: CustomButton(
                   onTap: () {
-                  //  Get.toNamed(AppRoutes.signInScreen);
+                   Get.toNamed(AppRoutes.personalizeQuestionScreenOne);
                   },
                   text: 'Lets get start'),
             ),

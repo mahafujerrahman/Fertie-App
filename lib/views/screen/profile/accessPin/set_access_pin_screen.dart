@@ -53,11 +53,16 @@ class _SetAccessPinScreenState extends State<SetAccessPinScreen> {
                   onUnlocked: Navigator.of(context).pop,
                 ),
               );
-            }, text: 'Change Current Pin'),
+            }, text: 'Change Current Pin',
+              color: AppColors.colorE7E7E7,
+            ),
             SizedBox(height: 15),
-            CustomButton(onTap: (){
-             Get.toNamed(AppRoutes.removeAccessPinScreen);
-            }, text: 'Remove Pin'),
+            CustomButton(
+              color: AppColors.colorE7E7E7,
+                onTap: (){
+                  Get.toNamed(AppRoutes.removeAccessPinScreen);
+                  },
+                text: 'Remove Pin'),
 
           ],
         ),

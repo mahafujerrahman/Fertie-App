@@ -25,6 +25,8 @@ class AppIcons{
   static String passwordIcon = "$baseUrl/password.svg";
   static String accessPinIcon = "$baseUrl/accessPinIcon.svg";
   static String touchIcon = "$baseUrl/touchIcon.svg";
+  static String calenderblackColor = "$baseUrl/calenderblackColor.svg";
+  static String lineIcon = "$baseUrl/line.svg";
 
 
 

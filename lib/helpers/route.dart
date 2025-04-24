@@ -10,6 +10,11 @@ import 'package:fertie_app/views/screen/auth/signUpScreen.dart';
 import 'package:fertie_app/views/screen/calender/calenderScreen.dart';
 import 'package:fertie_app/views/screen/notification/notificationScreen.dart';
 import 'package:fertie_app/views/screen/home/homeScreen.dart';
+import 'package:fertie_app/views/screen/personalize/menstrualCycleScreen.dart';
+import 'package:fertie_app/views/screen/personalize/personalize_question_screen_five.dart';
+import 'package:fertie_app/views/screen/personalize/personalize_question_screen_one.dart';
+import 'package:fertie_app/views/screen/personalize/personalize_question_screen_three.dart';
+import 'package:fertie_app/views/screen/personalize/personalize_question_screen_two.dart';
 import 'package:fertie_app/views/screen/personalize/personalize_screen.dart';
 import 'package:fertie_app/views/screen/profile/accessPin/confirm_accessPin_screen.dart';
 import 'package:fertie_app/views/screen/profile/accessPin/new_accessPin_screen.dart';
@@ -22,6 +27,9 @@ import 'package:fertie_app/views/screen/profile/personalInformationScreen.dart';
 import 'package:fertie_app/views/screen/profile/profileScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+
+import '../views/screen/personalize/periodLengthScreen.dart';
+import '../views/screen/personalize/personalize_question_screen_four.dart';
 
 class AppRoutes{
   static String splashScreen = "/splash_screen";
@@ -47,6 +55,13 @@ class AppRoutes{
   static String newAccessPinScreen = "/newAccessPinScreen";
   static String oldAccessPinScreen = "/oldAccessPinScreen";
   static String personalizeScreen = "/personalizeScreen";
+  static String personalizeQuestionScreenOne = "/personalizeQuestion_screen_one";
+  static String personalizeQuestionScreenTwo = "/personalizeQuestion_screen_two";
+  static String personalizeQuestionScreenThree = "/personalizeQuestionScreenThree";
+  static String personalizeQuestionScreenFour = "/PersonalizeQuestionScreenFour";
+  static String personalizeQuestionScreenFive = "/personalizeQuestionScreenFive";
+  static String periodLengthScreen = "/periodLengthScreen";
+  static String menstrualCycleScreen = "/menstrualCycleScreen";
 
 
 
@@ -91,6 +106,13 @@ class AppRoutes{
 
    //Personalize Screen
    GetPage(name: personalizeScreen, page: ()=> PersonalizeScreen(),transition: Transition.noTransition),
+   GetPage(name: personalizeQuestionScreenOne, page: ()=> PersonalizeQuestionScreenOne(),transition: Transition.noTransition),
+   GetPage(name: personalizeQuestionScreenTwo, page: ()=> PersonalizeQuestionScreenTwo(),transition: Transition.noTransition),
+   GetPage(name: personalizeQuestionScreenThree, page: ()=> PersonalizeQuestionScreenThree(),transition: Transition.noTransition),
+   GetPage(name: personalizeQuestionScreenFour, page: ()=> PersonalizeQuestionScreenFour(),transition: Transition.noTransition),
+   GetPage(name: personalizeQuestionScreenFive, page: ()=> PersonalizeQuestionScreenFive(),transition: Transition.noTransition),
+   GetPage(name: periodLengthScreen, page: ()=> PeriodLengthScreen(),transition: Transition.noTransition),
+   GetPage(name: menstrualCycleScreen, page: ()=> MenstrualCycleScreen(),transition: Transition.noTransition),
 
    //Notification
    GetPage(name:notificationScreen, page: ()=> NotificationScreen(),transition: Transition.noTransition),
