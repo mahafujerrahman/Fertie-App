@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart' show AppColors;
 
 ThemeData light({Color color = const Color(0xFF039D55)}) => ThemeData(
-      fontFamily: 'OpenSans',
+      fontFamily: 'Nunito',
       primaryColor: color,
       scaffoldBackgroundColor: Colors.transparent,
       secondaryHeaderColor: const Color(0xFF1ED7AA),

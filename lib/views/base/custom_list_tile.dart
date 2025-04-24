@@ -20,29 +20,19 @@ class CustomListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 12.h),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.r),
-              color: AppColors.fillColor,
-              border: Border.all(width: 1.w, color: borderColor ?? AppColors.primaryColor)),
-          child: ListTile(
-            leading: prefixIcon,
-            trailing: suffixIcon,
-            horizontalTitleGap: 16.w,
-            dense: true,
-            title: CustomText(
-              textAlign: TextAlign.left,
-              text: title,
-              maxLine: 2,
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+    return GestureDetector(
+      onTap: onTap,
+      child: ListTile(
+        leading: prefixIcon,
+        trailing: suffixIcon,
+        horizontalTitleGap: 12.w,
+        dense: true,
+        title: CustomText(
+          textAlign: TextAlign.left,
+          text: title,
+          maxLine: 2,
+          fontSize: 16.sp,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

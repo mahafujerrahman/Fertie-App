@@ -4,5 +4,6 @@ class AppImages{
   static const String passwordChangeAnimation = 'assets/animation/passwordDone.json';
 
   static String appLogo = "$baseUrl/appLogo.png";
+  static String cuteappLogo = "$baseUrl/cuteappLogo.png";
 
 }

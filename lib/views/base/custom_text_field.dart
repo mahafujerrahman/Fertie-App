@@ -101,7 +101,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             horizontal: widget.contentPaddingHorizontal ?? 12.w,
             vertical: widget.contentPaddingVertical ?? 16.w),
         filled: true,
-        fillColor: widget.filColor ?? AppColors.fillColor,
+        fillColor: widget.filColor ?? AppColors.colorF6F6F6,
         prefixIcon: Padding(
           padding: const EdgeInsets.all(10.0),
           child: widget.prefixIcon,
@@ -119,12 +119,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
         prefixIconColor: AppColors.iconGrayColor,
         labelText: widget.labelText,
         hintText: widget.hintText,
-        hintStyle: TextStyle(color: AppColors.hintColor, fontFamily: 'OpenSans'),
+        hintStyle: TextStyle(color: AppColors.hintColor, fontFamily: 'Nunito'),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16.r),
           borderSide: BorderSide(
             width: 1.w,
-            color: AppColors.primaryColor,
+            color: AppColors.borderColor,
           ),
         ),
         errorBorder: _buildOutlineInputBorder(),
@@ -150,7 +150,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       borderRadius: BorderRadius.circular(12.r),
       borderSide: BorderSide(
         width: 1.w,
-        color: AppColors.primaryColor,
+        color: AppColors.borderColor,
       ),
     );
   }
