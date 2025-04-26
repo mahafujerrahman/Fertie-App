@@ -386,7 +386,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
                                         Text('Menstrual Cycle',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
                                         InkWell(
                                             onTap: (){
-                                              Get.toNamed(AppRoutes.editCycleInsightScreen);
+                                              Get.toNamed(AppRoutes.menstrualCycleScreen);
                                             },
                                             child: SvgPicture.asset(AppIcons.editIcon)),
                                       ],

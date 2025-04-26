@@ -113,34 +113,38 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          InkWell(
+                              onTap: (){
+                                _decrementPeriod();
+                              },
+                              child: SvgPicture.asset(AppIcons.minusIcon)),
 
-                          IconButton(
-                            onPressed: _decrementPeriod,
-                            icon: Icon(Icons.remove_circle_outline, size: 60.sp),
-                            color: Colors.grey,
-                          ),
-                          Container(
-                            width: 100.w,
-                            height: 60.h,
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: Colors.pink.shade50,
-                              border: Border.all(width: 1.w, color: AppColors.subTextColor),
-                              borderRadius: BorderRadius.circular(4.r),
-                            ),
-                            child: Text(
-                              '$periodLength',
-                              style: TextStyle(
-                                fontSize: 24.sp,
-                                fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.r),
+                            child: Container(
+                              width: 100.w,
+                              height: 60.h,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color:  AppColors.colorFCF5F4,
+                                border: Border.all(width: 1.w, color: AppColors.subTextColor),
+                                borderRadius: BorderRadius.circular(4.r),
+                              ),
+                              child: Text(
+                                '$periodLength',
+                                style: TextStyle(
+                                  fontSize: 24.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
-                          IconButton(
-                            onPressed: _incrementPeriod,
-                            icon: Icon(Icons.add_circle_outline, size: 60.sp),
-                            color: Colors.grey,
-                          ),
+
+                          InkWell(
+                              onTap: (){
+                                _incrementPeriod();
+                              },
+                              child: SvgPicture.asset(AppIcons.plusIcon)),
                         ],
                       ),
 

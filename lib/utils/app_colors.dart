@@ -23,6 +23,7 @@ class AppColors{
   static Color color88888 = const Color(0xFF888888);
 
 
+
   static Color blackColor=const Color(0xFF010101);
   static Color color565656 =const Color(0xFF565656);
   static Color receivedChatColor=const Color(0xFF202B33);

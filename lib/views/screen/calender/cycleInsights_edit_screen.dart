@@ -33,12 +33,10 @@ class _EditCycleInsightScreenState extends State<EditCycleInsightScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.secondColor,
-      bottomNavigationBar: UserBottomMenu(1),
       appBar: AppBar(
         backgroundColor: AppColors.secondColor,
         title:  Text('Cycle Insight',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
         centerTitle: true,
-        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -61,7 +59,7 @@ class _EditCycleInsightScreenState extends State<EditCycleInsightScreen> {
                   children: [
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.all(8.r),
+                        padding: EdgeInsets.all(16.r),
                         child: Column(
                           children: [
                             Container(
@@ -79,7 +77,7 @@ class _EditCycleInsightScreenState extends State<EditCycleInsightScreen> {
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text('Menstrual flow',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                        Text('Menstrual flow',style: AppStyles.fontSize14()),
                                         Row(
                                           children: [
                                             SvgPicture.asset(AppIcons.bloodIcon),
@@ -90,14 +88,84 @@ class _EditCycleInsightScreenState extends State<EditCycleInsightScreen> {
                                       ],
                                     ),
                                     SizedBox(height: 8.h),
-                                    Padding(
-                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
-                                      child: Text('Total : 28 days',style: AppStyles.fontSize14(fontWeight: FontWeight.w500)),
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Mood',style: AppStyles.fontSize14()),
+                                              SizedBox(height: 8.h),
+                                              Row(
+                                                children: [
+                                                  SvgPicture.asset(AppIcons.bloodIcon),
+                                                  SizedBox(width: 4.w),
+                                                  Text('Great',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Activity',style: AppStyles.fontSize14()),
+                                              SizedBox(height: 8.h),
+                                              Row(
+                                                children: [
+                                                  SvgPicture.asset(AppIcons.loveIcon),
+                                                  SizedBox(width: 4.w),
+                                                  Text('Intercourse',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Padding(
-                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
-                                      child: Text('Jan 1 to Jan 28',style: AppStyles.fontSize12(color: AppColors.color88888)),
+                                    SizedBox(height: 8.h),
+                                    //Symptom
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Symptoms',style: AppStyles.fontSize14()),
+                                              SizedBox(height: 8.h),
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Row(
+                                                      children: [
+                                                        SvgPicture.asset(AppIcons.bloodIcon),
+                                                        SizedBox(width: 4.w),
+                                                        Text('Great',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Expanded(
+                                                    child: Row(
+                                                      children: [
+                                                        SvgPicture.asset(AppIcons.bloodIcon),
+                                                        SizedBox(width: 4.w),
+                                                        Text('Others',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+
+                                      ],
                                     ),
+
 
                                   ],
                                 ),

@@ -29,6 +29,8 @@ class AppIcons{
   static String lineIcon = "$baseUrl/line.svg";
   static String editIcon = "$baseUrl/editIcon.svg";
   static String bloodIcon = "$baseUrl/bloodIcon.svg";
+  static String minusIcon = "$baseUrl/minusIcon.svg";
+  static String plusIcon = "$baseUrl/plusIcon.svg";
 
 
 
