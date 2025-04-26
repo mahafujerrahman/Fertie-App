@@ -8,6 +8,7 @@ import 'package:fertie_app/views/screen/auth/email_verificationScreen.dart';
 import 'package:fertie_app/views/screen/auth/setPasswordScreen.dart';
 import 'package:fertie_app/views/screen/auth/signUpScreen.dart';
 import 'package:fertie_app/views/screen/calender/calenderScreen.dart';
+import 'package:fertie_app/views/screen/calender/cycleInsights_edit_screen.dart';
 import 'package:fertie_app/views/screen/notification/notificationScreen.dart';
 import 'package:fertie_app/views/screen/home/homeScreen.dart';
 import 'package:fertie_app/views/screen/personalize/menstrualCycleScreen.dart';
@@ -62,6 +63,7 @@ class AppRoutes{
   static String personalizeQuestionScreenFive = "/personalizeQuestionScreenFive";
   static String periodLengthScreen = "/periodLengthScreen";
   static String menstrualCycleScreen = "/menstrualCycleScreen";
+  static String editCycleInsightScreen = "/editCycleInsightScreen";
 
 
 
@@ -87,6 +89,7 @@ class AppRoutes{
 
    //Calender
    GetPage(name:calenderScreen, page: ()=> CalenderScreen(),transition: Transition.noTransition),
+   GetPage(name:editCycleInsightScreen, page: ()=> EditCycleInsightScreen(),transition: Transition.noTransition),
 
    //Profile
    GetPage(name:profileScreen, page: ()=> ProfileScreen(),transition: Transition.noTransition),

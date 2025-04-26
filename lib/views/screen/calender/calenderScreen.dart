@@ -1,3 +1,4 @@
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
@@ -7,6 +8,8 @@ import 'package:fertie_app/views/screen/calender/datStatusWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -306,6 +309,110 @@ class _CalenderScreenState extends State<CalenderScreen> {
                 ],
               ),
             ),
+              SizedBox(height: 20.h),
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.r),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 100.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.colorEBD7C7,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Padding(
+                                padding:  EdgeInsets.all(8.r),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('Period Length',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                        InkWell(
+                                          onTap: (){
+                                            Get.toNamed(AppRoutes.editCycleInsightScreen);
+                                          },
+                                            child: SvgPicture.asset(AppIcons.editIcon)),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8.h),
+                                    Padding(
+                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
+                                      child: Text('Total : 5 days',style: AppStyles.fontSize14(fontWeight: FontWeight.w500)),
+                                    ),
+                                    Padding(
+                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
+                                      child: Text('Jan 1 to Jan 5',style: AppStyles.fontSize12(color: AppColors.color88888)),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.r),
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 100.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.colorEBD7C7,
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                              child: Padding(
+                                padding:  EdgeInsets.all(8.r),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text('Menstrual Cycle',style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
+                                        InkWell(
+                                            onTap: (){
+                                              Get.toNamed(AppRoutes.menstrualCycleScreen);
+                                            },
+                                            child: SvgPicture.asset(AppIcons.editIcon)),
+                                      ],
+                                    ),
+                                    SizedBox(height: 8.h),
+                                    Padding(
+                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
+                                      child: Text('Total : 28 days',style: AppStyles.fontSize14(fontWeight: FontWeight.w500)),
+                                    ),
+                                    Padding(
+                                      padding:  EdgeInsets.symmetric(vertical: 2.r),
+                                      child: Text('Jan 1 to Jan 28',style: AppStyles.fontSize12(color: AppColors.color88888)),
+                                    ),
+
+                                  ],
+                                ),
+                              ),
+
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
 
             ],
           ),
