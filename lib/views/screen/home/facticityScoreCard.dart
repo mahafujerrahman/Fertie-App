@@ -68,7 +68,7 @@ class FactityScoreContainer extends StatelessWidget {
                     padding:  EdgeInsets.symmetric(vertical: 8.h),
                     child: Row(
                       children: [
-                        Text('Edit Insights '),
+                        Text('Edit Insights'),
                         SizedBox(width: 8.w),
                         SvgPicture.asset(AppIcons.editIcon),
                       ],
