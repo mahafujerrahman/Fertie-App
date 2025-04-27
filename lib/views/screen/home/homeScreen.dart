@@ -5,6 +5,7 @@ import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
+import 'package:fertie_app/views/screen/home/facticityScoreCard.dart';
 import 'package:fertie_app/views/screen/home/homeScreenGraph.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomButton(onTap: () {
                 Get.toNamed(AppRoutes.personalizeScreen);
               }, text: "Personalize Journey 🧡"),
+              SizedBox(height: 10.h),
+              FactityScoreContainer(),
               SizedBox(height: 10.h),
               LineChartSample(),
               SizedBox(height: 10.h),
