@@ -27,20 +27,22 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.secondColor,
       bottomNavigationBar: UserBottomMenu(0),
-      appBar: AppBar(
-        title: const Text('Home'),
+   /*   appBar: AppBar(
+      //  title: const Text('Home'),
         centerTitle: true,
         automaticallyImplyLeading: false,
-      ),
+      ),*/
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(height: 20.h),
               CustomButton(onTap: () {
                 Get.toNamed(AppRoutes.personalizeScreen);
-              }, text: "Personalize Journey 🧡"),
+              }, text: "Personalize Journey 🧡"
+              ),
               SizedBox(height: 10.h),
               FactityScoreContainer(),
               SizedBox(height: 10.h),

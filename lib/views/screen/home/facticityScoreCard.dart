@@ -1,3 +1,4 @@
+import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 
 class FactityScoreContainer extends StatelessWidget {
   @override
@@ -15,6 +18,7 @@ class FactityScoreContainer extends StatelessWidget {
       children: [
         Text('Lindsay', style: AppStyles.fontSize14(fontWeight: FontWeight.w600)),
         Text('Let\'s Track Smarter, Not Harder!', style: AppStyles.fontSize14(fontWeight: FontWeight.w600,color: AppColors.primaryColor)),
+        SizedBox(height: 10.h),
         Container(
           width: double.infinity,
           height: 224.h,
@@ -50,27 +54,25 @@ class FactityScoreContainer extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text('Facticity', style: AppStyles.fontSize20(fontWeight: FontWeight.w600)),
-                          Text('Score', style: AppStyles.fontSize18(fontWeight: FontWeight.w500)),
-
-                          Text(
-                            '82',
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                            ),
-                          ),
+                          Text('Score', style: AppStyles.fontSize18(fontWeight: FontWeight.w600)),
+                          Text('82', style: AppStyles.fontSize18(fontWeight: FontWeight.w600)),
                         ],
                       ),
+
                     ],
                   ),
+
                   Padding(
                     padding:  EdgeInsets.symmetric(vertical: 8.h),
                     child: Row(
                       children: [
                         Text('Edit Insights'),
                         SizedBox(width: 8.w),
-                        SvgPicture.asset(AppIcons.editIcon),
+                        InkWell(
+                          onTap: (){
+                            Get.toNamed(AppRoutes.editInsightsScreen);
+                          },
+                          child: SvgPicture.asset(AppIcons.editIcon)),
                       ],
                     ),
                   ),

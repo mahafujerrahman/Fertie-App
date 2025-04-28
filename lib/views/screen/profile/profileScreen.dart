@@ -31,13 +31,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: AppColors.secondColor,
       bottomNavigationBar: UserBottomMenu(2),
       appBar: AppBar(
-        title: const Text('Profile'),
+        title:  Text('Profile',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding:  EdgeInsets.all(8.r),
           child: Column(
             children: [
               Center(
@@ -46,34 +46,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     // Profile picture
                     _image != null
-                        ? Padding(
-                      padding: EdgeInsets.all(8.0.r),
-                      child: Container(
+                        ? Container(
+                            width: 150.w,
+                            height: 150.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 1.w, color: AppColors.white),
+                                image: DecorationImage(
+                                    image: MemoryImage(_image!),
+                                    fit: BoxFit.cover)))
+                        : Container(
                           width: 150.w,
                           height: 150.h,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(width: 1.w, color: AppColors.white),
-                              image: DecorationImage(
-                                  image: MemoryImage(_image!),
-                                  fit: BoxFit.cover))),
-                    )
-                        : Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        width: 150.w,
-                        height: 150.h,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(30.r)),
-                        ),
-                        child: ClipOval(
-                          child: Image.network(
-                            'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
-                            fit: BoxFit.cover,
+                            borderRadius: BorderRadius.all(Radius.circular(30.r)),
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
                     Positioned(
                       bottom: 10,
                       right: 10,
@@ -99,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 8.h),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -109,7 +103,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Text('Account type : Free', style: AppStyles.fontSize16(color: AppColors.subTextColor)),
                 ],
               ),
-              SizedBox(height: 16.h),
+              SizedBox(height: 8.h),
               Container(
                 decoration: BoxDecoration(
                   color: AppColors.colorF7D6D1,
@@ -128,10 +122,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                         title: 'Personal Information'),
                       CustomListTile(
+                          prefixIcon: SvgPicture.asset(AppIcons.labTest),
+                          suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
+                          onTap: (){
+                            Get.toNamed(AppRoutes.labTestScreen);
+                          },
+                          title: 'Lab Test'),
+                      CustomListTile(
                           prefixIcon: SvgPicture.asset(AppIcons.updateAccountIcon),
                           suffixIcon: SvgPicture.asset(AppIcons.listTileArrowIcon),
                           onTap: (){
-                          //  Get.toNamed(AppRoutes.personalInformationScreen);
+                           Get.toNamed(AppRoutes.upgradeAccountScreen);
                           },
                           title: 'Upgrade Account Type'),
 

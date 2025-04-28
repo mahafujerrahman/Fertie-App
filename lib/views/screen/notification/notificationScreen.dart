@@ -1,4 +1,5 @@
 import 'package:fertie_app/utils/app_colors.dart';
+import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_text.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
@@ -87,7 +88,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       backgroundColor: AppColors.white,
       bottomNavigationBar: UserBottomMenu(3),
       appBar: AppBar(
-        title: const Text('Notification'),
+        title:  Text('Notification',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
