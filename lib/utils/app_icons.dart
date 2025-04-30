@@ -31,6 +31,8 @@ class AppIcons{
   static String bloodIcon = "$baseUrl/bloodIcon.svg";
   static String minusIcon = "$baseUrl/minusIcon.svg";
   static String plusIcon = "$baseUrl/plusIcon.svg";
+  static String labTest = "$baseUrl/labTest.svg";
+  static String checkIcon = "$baseUrl/checkIcon.svg";
 
 
 

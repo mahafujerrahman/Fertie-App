@@ -1,9 +1,11 @@
 import 'package:fertie_app/utils/app_colors.dart';
+import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 
 class EditPersonalInformationScreen extends StatefulWidget {
@@ -20,7 +22,6 @@ class _EditPersonalInformationScreenState
   TextEditingController birthdayCTRl = TextEditingController();
   TextEditingController emailCTRl = TextEditingController();
 
-  int age = 0;
 
   @override
   void initState() {
@@ -29,111 +30,106 @@ class _EditPersonalInformationScreenState
     emailCTRl.text = 'linfsay@example.com';
     birthdayCTRl.text = 'April 15,2022';
   }
+  // Default selected date
+  DateTime selectedDate = DateTime.now();
 
-  // Function to calculate age
-  void calculateAge(String birthDate) {
-    try {
-      DateTime birthDateTime = DateFormat('dd-MM-yyyy').parse(birthDate);
-      DateTime currentDate = DateTime.now();
-      int years = currentDate.year - birthDateTime.year;
-      if (currentDate.month < birthDateTime.month ||
-          (currentDate.month == birthDateTime.month &&
-              currentDate.day < birthDateTime.day)) {
-        years--;
-      }
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate,
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+
+    if (picked != null && picked != selectedDate) {
       setState(() {
-        age = years;
+        selectedDate = picked;
+        birthdayCTRl.text = "${selectedDate.toLocal()}".split(' ')[0];
       });
-    } catch (e) {
-      print("Error parsing date: $e");
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.secondColor,
       appBar: AppBar(
+        backgroundColor: AppColors.secondColor,
         centerTitle: true,
         title: Text('Edit Personal Information'),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Name Section
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: Text('Name'),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: CustomTextField(controller: nameCTRl),
-              ),
-
-              // Email Section
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: Text('Email'),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: CustomTextField(controller: emailCTRl),
-              ),
-
-              // Age Section
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.h),
-                child: Text('Age'),
-              ),
-              Row(
+          child: Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16.r),
+              color: AppColors.white,
+              border: Border.all(width: 1.w, color: AppColors.greyColor),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(16.r),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8.h),
-                      child: TextFormField(
-                        controller: birthdayCTRl,
-                        onChanged: (value) {
-                          calculateAge(value);
-                        },
-                        decoration: InputDecoration(
-                          hintText: 'Select Birth Date',
-                        ),
-                      ),
-                    ),
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.calendar_month),
-                    onPressed: () async {
-                      DateTime? selectedDate = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(1900),
-                        lastDate: DateTime.now(),
-                      );
-                      if (selectedDate != null) {
-                        String formattedDate =
-                        DateFormat('MMMM dd,yyyy').format(selectedDate);
-                        setState(() {
-                          birthdayCTRl.text = formattedDate;
-                          calculateAge(formattedDate);
-                        });
-                      }
-                    },
+                  // Name Section
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    child: Text('Name'),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.h),
-                    child: Text('$age Years'),
+                    child: CustomTextField(controller: nameCTRl),
                   ),
 
+                  // Email Section
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    child: Text('Email'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    child: CustomTextField(controller: emailCTRl),
+                  ),
+
+                  // Age Section
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
+                    child: Text('Age'),
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CustomTextField(
+                          hintText: 'Select date',
+                          controller: birthdayCTRl,
+                          readOnly: true,
+                          suffixIcons: InkWell(
+                            onTap: () {
+                              _selectDate(context);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: SvgPicture.asset(AppIcons.calenderblackColor),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 10.w),
+                      Text(
+                        '${DateTime.now().year - selectedDate.year} Years',
+                        style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.subTextColor),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 16.h),
+                  CustomButton(onTap: (){}, text: "Save"),
+                  SizedBox(height: 16.h),
                 ],
               ),
-              SizedBox(height: 16.h),
-              CustomButton(onTap: (){}, text: "Save"),
-              SizedBox(height: 16.h),
-            ],
+            ),
           ),
         ),
       ),

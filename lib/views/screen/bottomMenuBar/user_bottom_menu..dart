@@ -76,8 +76,6 @@ class UserBottomMenu extends StatelessWidget {
         items: menuItems,
       ),
     );
-
-
   }
 }
 

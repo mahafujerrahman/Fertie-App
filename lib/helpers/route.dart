@@ -9,6 +9,7 @@ import 'package:fertie_app/views/screen/auth/setPasswordScreen.dart';
 import 'package:fertie_app/views/screen/auth/signUpScreen.dart';
 import 'package:fertie_app/views/screen/calender/calenderScreen.dart';
 import 'package:fertie_app/views/screen/calender/cycleInsights_edit_screen.dart';
+import 'package:fertie_app/views/screen/home/editInsights_screen.dart';
 import 'package:fertie_app/views/screen/notification/notificationScreen.dart';
 import 'package:fertie_app/views/screen/home/homeScreen.dart';
 import 'package:fertie_app/views/screen/personalize/menstrualCycleScreen.dart';
@@ -24,6 +25,7 @@ import 'package:fertie_app/views/screen/profile/accessPin/remove_accesspin_scree
 import 'package:fertie_app/views/screen/profile/accessPin/set_access_pin_screen.dart';
 import 'package:fertie_app/views/screen/profile/editPersonalInforamtion.dart';
 import 'package:fertie_app/views/screen/profile/help/helpScreen.dart';
+import 'package:fertie_app/views/screen/profile/lapTest/labDetsils_screen.dart';
 import 'package:fertie_app/views/screen/profile/personalInformationScreen.dart';
 import 'package:fertie_app/views/screen/profile/profileScreen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
@@ -31,6 +33,8 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
 import '../views/screen/personalize/periodLengthScreen.dart';
 import '../views/screen/personalize/personalize_question_screen_four.dart';
+import '../views/screen/profile/lapTest/labTestScreen.dart';
+import '../views/screen/profile/upgradeAccount/upgradeAccountScreen.dart';
 
 class AppRoutes{
   static String splashScreen = "/splash_screen";
@@ -64,6 +68,11 @@ class AppRoutes{
   static String periodLengthScreen = "/periodLengthScreen";
   static String menstrualCycleScreen = "/menstrualCycleScreen";
   static String editCycleInsightScreen = "/editCycleInsightScreen";
+  static String labTestScreen = "/labTestScreen";
+  static String labDetailsScreen = "/labDetailsScreen";
+  static String upgradeAccountScreen = "/upgrade_account_screen";
+  static String editInsightsScreen = "/editInsightsScreen";
+
 
 
 
@@ -86,6 +95,7 @@ class AppRoutes{
 
    //Home
    GetPage(name:homeScreen, page: ()=> HomeScreen(),transition: Transition.noTransition),
+   GetPage(name:editInsightsScreen, page: ()=> EditInsightsScreen(),transition: Transition.noTransition),
 
    //Calender
    GetPage(name:calenderScreen, page: ()=> CalenderScreen(),transition: Transition.noTransition),
@@ -98,6 +108,9 @@ class AppRoutes{
    GetPage(name:setAccessPinScreen, page: ()=> SetAccessPinScreen(),transition: Transition.noTransition),
    GetPage(name:removeAccessPinScreen, page: ()=> RemoveAccessPinScreen(),transition: Transition.noTransition),
    GetPage(name:helpScreen, page: ()=> HelpScreen(),transition: Transition.noTransition),
+   GetPage(name:labTestScreen, page: ()=> LabTestScreen(),transition: Transition.noTransition),
+   GetPage(name:labDetailsScreen, page: ()=> LabDetailsScreen(),transition: Transition.noTransition),
+   GetPage(name:upgradeAccountScreen, page: ()=> UpgradeAccountScreen(),transition: Transition.noTransition),
 
 
 
