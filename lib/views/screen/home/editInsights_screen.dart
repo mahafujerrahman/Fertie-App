@@ -5,6 +5,7 @@ import 'package:fertie_app/views/screen/home/editInsightsController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
@@ -82,19 +83,13 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                   label: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(
-                                        editInsightsController.menstrualIcons[option],
-                                        size: 18.sp,
-                                        color: isSelected ? AppColors.white : AppColors.blackColor,
-                                      ),
+                                      // Use SvgPicture to display the icon
+                                      editInsightsController.menstrualIcons[option] ??
+                                          SvgPicture.asset('assets/icons/birthday.svg'),
                                       SizedBox(width: 4.w),
                                       Text(
                                         option,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: isSelected ? AppColors.white : AppColors.blackColor,
-                                        ),
+                                        style: AppStyles.fontSize16(fontWeight: FontWeight.w700, color: AppColors.blackColor),
                                       ),
                                     ],
                                   ),
@@ -114,9 +109,7 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.r),
                                   ),
-                                  side: BorderSide(
-                                    color: isSelected ? AppColors.white : AppColors.greyColor.withOpacity(.5),
-                                  ),
+                                  side: BorderSide.none,
                                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                                 );
                               }).toList(),
@@ -124,6 +117,8 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                           ],
                         );
                       }),
+
+
                       SizedBox(height: 8.h),
 
                       //==============>> Mood
@@ -149,12 +144,8 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                       ),
                                       SizedBox(width: 4.w),
                                       Text(
-                                        option,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: isSelected ? AppColors.white : AppColors.blackColor,
-                                        ),
+                                      option,
+                                      style: AppStyles.fontSize16(fontWeight: FontWeight.w700,color: AppColors.blackColor)
                                       ),
                                     ],
                                   ),
@@ -174,9 +165,7 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.r),
                                   ),
-                                  side: BorderSide(
-                                    color: isSelected ? AppColors.white : AppColors.greyColor.withOpacity(.5),
-                                  ),
+                                  side: BorderSide.none,
                                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                                 );
                               }).toList(),
@@ -208,12 +197,8 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                       ),
                                       SizedBox(width: 4.w),
                                       Text(
-                                        option,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: isSelected ? AppColors.white : AppColors.blackColor,
-                                        ),
+                                          option,
+                                          style: AppStyles.fontSize16(fontWeight: FontWeight.w700,color: AppColors.blackColor)
                                       ),
                                     ],
                                   ),
@@ -233,9 +218,7 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.r),
                                   ),
-                                  side: BorderSide(
-                                    color: isSelected ? AppColors.white : AppColors.greyColor.withOpacity(.5),
-                                  ),
+                                  side: BorderSide.none,
                                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                                 );
                               }).toList(),
@@ -267,12 +250,8 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                       ),
                                       SizedBox(width: 4.w),
                                       Text(
-                                        option,
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                          color: isSelected ? AppColors.white : AppColors.blackColor,
-                                        ),
+                                          option,
+                                          style: AppStyles.fontSize16(fontWeight: FontWeight.w700,color: AppColors.blackColor)
                                       ),
                                     ],
                                   ),
@@ -292,9 +271,7 @@ class _EditInsightsScreenState extends State<EditInsightsScreen> {
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.r),
                                   ),
-                                  side: BorderSide(
-                                    color: isSelected ? AppColors.white : AppColors.greyColor.withOpacity(.5),
-                                  ),
+                                  side: BorderSide.none,
                                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                                 );
                               }).toList(),
