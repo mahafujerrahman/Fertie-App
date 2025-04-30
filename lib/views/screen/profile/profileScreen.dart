@@ -32,6 +32,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: AppColors.secondColor,
       bottomNavigationBar: UserBottomMenu(2),
       appBar: AppBar(
+        backgroundColor: AppColors.secondColor,
         title:  Text('Profile',style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
         centerTitle: true,
         automaticallyImplyLeading: false,

@@ -39,10 +39,10 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
-              CustomButton(onTap: () {
+             /* CustomButton(onTap: () {
                 Get.toNamed(AppRoutes.personalizeScreen);
               }, text: "Personalize Journey 🧡"
-              ),
+              ),*/
               SizedBox(height: 10.h),
               FactityScoreContainer(),
               SizedBox(height: 10.h),
