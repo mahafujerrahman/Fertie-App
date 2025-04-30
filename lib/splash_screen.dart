@@ -93,7 +93,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
       ///======================no internet=========================>
       else {
-        Get.snackbar("No Internet", 'Connect you device with internet');
+        Get.offAllNamed(AppRoutes.onboardingScreen);
+        Get.snackbar("No Internet", 'Connect your device with internet');
         print("----------------------No internet");
       }
     });
