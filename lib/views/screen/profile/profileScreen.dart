@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:fertie_app/helpers/imageHelper.dart';
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/views/base/custom_list_tile.dart';
@@ -47,33 +48,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     // Profile picture
                     _image != null
                         ? Container(
-                            width: 150.w,
-                            height: 150.h,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(width: 1.w, color: AppColors.white),
-                                image: DecorationImage(
-                                    image: MemoryImage(_image!),
-                                    fit: BoxFit.cover)))
+                        width: 150.w,
+                        height: 150.h,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 1.w, color: AppColors.white),
+                            image: DecorationImage(
+                                image: MemoryImage(_image!),
+                                fit: BoxFit.cover)))
                         : Container(
-                          width: 150.w,
-                          height: 150.h,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(30.r)),
-                          ),
-                          child: ClipOval(
-                            child: Image.network(
-                              'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                      width: 150.w, height: 150.h,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(30.r)),
+                      ),
+                      child: ClipOval(
+                        child: Image.network(
+                          'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
+                          fit: BoxFit.cover,
                         ),
+                      ),
+                    ),
                     Positioned(
                       bottom: 10,
                       right: 10,
                       child: GestureDetector(
                         onTap: () {
-                          showImagePickerOption(context);
+                          ImagePickerHelper.showImagePickerOption(context, (File pickedImage) {
+                            setState(() {
+                              selectedImage = pickedImage;
+                              _image = pickedImage.readAsBytesSync();
+                            });
+                          });
                         },
                         child: Container(
                           width: 40.w,
@@ -93,6 +98,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ],
                 ),
               ),
+
+
 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -273,86 +280,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
         );
       },
     );
-  }
-
-  // Show image picker options (Gallery or Camera)
-  void showImagePickerOption(BuildContext context) {
-    showModalBottomSheet(
-      backgroundColor: AppColors.white,
-      context: context,
-      builder: (builder) {
-        return Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 4.2,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Expanded(
-                  child: InkWell(
-                    onTap: () {
-                      _pickImageFromGallery();
-                    },
-                    child: SizedBox(
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.image,
-                            size: 50.w,
-                            color: AppColors.primaryColor,
-                          ),
-                          CustomText(text: 'Gallery')
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: InkWell(
-                    onTap: () {
-                      _pickImageFromCamera();
-                    },
-                    child: SizedBox(
-                      child: Column(
-                        children: [
-                          Icon(Icons.camera_alt,
-                              size: 50.w, color: AppColors.primaryColor),
-                          CustomText(text: 'Camera')
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
-  // Pick image from gallery
-  Future _pickImageFromGallery() async {
-    final returnImage =
-    await ImagePicker().pickImage(source: ImageSource.gallery);
-    if (returnImage == null) return;
-    setState(() {
-      selectedImage = File(returnImage.path);
-      _image = File(returnImage.path).readAsBytesSync();
-    });
-    Get.back();
-  }
-
-  // Pick image from camera
-  Future _pickImageFromCamera() async {
-    final returnImage =
-    await ImagePicker().pickImage(source: ImageSource.camera);
-    if (returnImage == null) return;
-    setState(() {
-      selectedImage = File(returnImage.path);
-      _image = File(returnImage.path).readAsBytesSync();
-    });
-    Get.back();
   }
 }
