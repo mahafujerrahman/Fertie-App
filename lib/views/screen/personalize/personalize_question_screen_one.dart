@@ -150,12 +150,7 @@ class _PersonalizeQuestionScreenOneState
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
                               child: Center(
-                                child: Text(
-                                  'Inches',
-                                  style: AppStyles.fontSize24(
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.blackColor),
-                                ),
+                                child: Text('Inches', style: AppStyles.fontSize14(fontWeight: FontWeight.w600, color: AppColors.blackColor)),
                               ),
                             ),
                           ),
@@ -177,9 +172,7 @@ class _PersonalizeQuestionScreenOneState
                               child: Center(
                                 child: Text(
                                   'Cm',
-                                  style: AppStyles.fontSize24(
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.blackColor),
+                                  style: AppStyles.fontSize14(fontWeight: FontWeight.w600, color: AppColors.blackColor),
                                 ),
                               ),
                             ),
@@ -234,10 +227,7 @@ class _PersonalizeQuestionScreenOneState
                               ),
                               child: Center(
                                 child: Text(
-                                  'Lbs',
-                                  style: AppStyles.fontSize24(
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.blackColor),
+                                  'Lbs', style: AppStyles.fontSize14(fontWeight: FontWeight.w600, color: AppColors.blackColor),
                                 ),
                               ),
                             ),
@@ -259,10 +249,7 @@ class _PersonalizeQuestionScreenOneState
                               ),
                               child: Center(
                                 child: Text(
-                                  'kg',
-                                  style: AppStyles.fontSize24(
-                                      fontWeight: FontWeight.w500,
-                                      color: AppColors.blackColor),
+                                  'kg', style: AppStyles.fontSize14(fontWeight: FontWeight.w600, color: AppColors.blackColor),
                                 ),
                               ),
                             ),

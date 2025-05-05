@@ -43,6 +43,8 @@ class _PersonalizeQuestionScreenFourState extends State<PersonalizeQuestionScree
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SvgPicture.asset(AppIcons.lineIcon,width: 70.w),
                   Padding(

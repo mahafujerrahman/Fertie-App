@@ -172,21 +172,24 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                           children: [
                             Container(
                               width: 185.w,
-                              height: 40.h,
+                              height: 32.h,
                               decoration: BoxDecoration(
                                 border: Border.all(width: 1.w, color: AppColors.subTextColor),
                                 borderRadius: BorderRadius.circular(4.r),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '${_getMonthName(startDate.month)} ${startDate.day}, ${startDate.year}',
-                                    style: AppStyles.fontSize16(fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(width: 6.w),
-                                 SvgPicture.asset(AppIcons.calenderblackColor,height: 20.h)
-                                ],
+                              child: Padding(
+                                padding:  EdgeInsets.symmetric(horizontal: 8.r),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${_getMonthName(startDate.month)} ${startDate.day}, ${startDate.year}',
+                                      style: AppStyles.fontSize16(fontWeight: FontWeight.w600),
+                                    ),
+                                    SizedBox(width: 12.w),
+                                   SvgPicture.asset(AppIcons.calenderblackColor,height: 20.h)
+                                  ],
+                                ),
                               ),
                             ),
                             SizedBox(width: 6.w),

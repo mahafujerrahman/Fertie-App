@@ -1,10 +1,8 @@
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
-import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
-import 'package:fertie_app/views/base/custom_text.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,13 +43,15 @@ class _PersonalizeQuestionScreenFiveState extends State<PersonalizeQuestionScree
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppIcons.lineIcon,width: 50.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 30.w),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Text('Medical & Lifestyle 💊', style: AppStyles.fontSize24(fontWeight: FontWeight.w900,color: AppColors.primaryColor)),
                   ),
-                  SvgPicture.asset(AppIcons.lineIcon,width: 50.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 30.w),
                 ],
               ),
 
