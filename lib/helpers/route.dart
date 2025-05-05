@@ -7,7 +7,7 @@ import 'package:fertie_app/views/screen/auth/code_verifyEmailScreen.dart';
 import 'package:fertie_app/views/screen/auth/email_verificationScreen.dart';
 import 'package:fertie_app/views/screen/auth/setPasswordScreen.dart';
 import 'package:fertie_app/views/screen/auth/signUpScreen.dart';
-import 'package:fertie_app/views/screen/calender/calenderScreen.dart';
+import 'package:fertie_app/views/screen/calender/calender_screen.dart';
 import 'package:fertie_app/views/screen/calender/cycleInsights_edit_screen.dart';
 import 'package:fertie_app/views/screen/home/editInsights_screen.dart';
 import 'package:fertie_app/views/screen/notification/notificationScreen.dart';

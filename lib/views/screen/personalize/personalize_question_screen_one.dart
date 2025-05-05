@@ -16,23 +16,21 @@ class PersonalizeQuestionScreenOne extends StatefulWidget {
   PersonalizeQuestionScreenOne({super.key});
 
   @override
-  State<PersonalizeQuestionScreenOne> createState() => _PersonalizeQuestionScreenOneState();
+  State<PersonalizeQuestionScreenOne> createState() =>
+      _PersonalizeQuestionScreenOneState();
 }
 
-class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreenOne> {
-  // Initialize controllers for text fields
+class _PersonalizeQuestionScreenOneState
+    extends State<PersonalizeQuestionScreenOne> {
   TextEditingController textController = TextEditingController();
   TextEditingController heightController = TextEditingController();
   TextEditingController weightController = TextEditingController();
 
-  // To manage unit selections
   bool isLbsSelected = false;
   bool isInchesSelected = false;
 
-  // Default selected date
   DateTime selectedDate = DateTime.now();
 
-  // Function to show date picker for the birthdate
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -44,14 +42,13 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
-        textController.text = "${selectedDate.toLocal()}".split(' ')[0];  // Update text field with selected date
+        textController.text = "${selectedDate.toLocal()}".split(' ')[0];
       });
     }
   }
 
   @override
   void dispose() {
-    // Dispose controllers to avoid memory leaks
     textController.dispose();
     heightController.dispose();
     weightController.dispose();
@@ -63,7 +60,9 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Personalize Journey 🧡', style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
+        title: Text('Personalize Journey 🧡',
+            style: AppStyles.fontSize24(
+                fontWeight: FontWeight.w600)),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -74,8 +73,13 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               // Date of Birth Question
-              Text('What’s your date of birth?', style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
-              Text('This helps us understand your fertility stage.', style: AppStyles.fontSize14(fontWeight: FontWeight.w500, color: AppColors.subTextColor)),
+              Text('What’s your date of birth?',
+                  style: AppStyles.fontSize24(
+                      fontWeight: FontWeight.w600)),
+              Text('This helps us understand your fertility stage.',
+                  style: AppStyles.fontSize14(
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.subTextColor)),
               SizedBox(height: 20.h),
               Row(
                 children: [
@@ -89,7 +93,7 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                           _selectDate(context);
                         },
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.r),
                           child: SvgPicture.asset(AppIcons.calenderblackColor),
                         ),
                       ),
@@ -98,12 +102,14 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                   SizedBox(width: 10.w),
                   Text(
                     '${DateTime.now().year - selectedDate.year} Years',
-                    style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.subTextColor),
+                    style: AppStyles.fontSize24(
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.subTextColor),
                   ),
                 ],
               ),
-
               SizedBox(height: 40.h),
+
               // Height Question
               Text('What is your height?', style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
               Text('You can enter in feet/inches or cm.', style: AppStyles.fontSize14(fontWeight: FontWeight.w500, color: AppColors.subTextColor)),
@@ -118,14 +124,16 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                   ),
                   SizedBox(width: 10.w),
                   Container(
-                    height: 60.h,
+                    height: 48.h,
                     decoration: BoxDecoration(
                       color: AppColors.colorD1D1D1,
                       borderRadius: BorderRadius.all(Radius.circular(8.r)),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: EdgeInsets.all(4.r),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           GestureDetector(
                             onTap: () {
@@ -134,12 +142,21 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                               });
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.r),
                               decoration: BoxDecoration(
-                                color: isInchesSelected ? AppColors.white : Colors.transparent,
+                                color: isInchesSelected
+                                    ? AppColors.white
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: Text('Inches', style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.blackColor)),
+                              child: Center(
+                                child: Text(
+                                  'Inches',
+                                  style: AppStyles.fontSize24(
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.blackColor),
+                                ),
+                              ),
                             ),
                           ),
                           SizedBox(width: 10.w),
@@ -150,25 +167,35 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                               });
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.r),
                               decoration: BoxDecoration(
-                                color: isInchesSelected ? Colors.transparent : AppColors.white,
+                                color: isInchesSelected
+                                    ? Colors.transparent
+                                    : AppColors.white,
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: Text('Cm', style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.blackColor)),
+                              child: Center(
+                                child: Text(
+                                  'Cm',
+                                  style: AppStyles.fontSize24(
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.blackColor),
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
-
               SizedBox(height: 40.h),
+
               // Weight Question
               Text('What is your weight?', style: AppStyles.fontSize24(fontWeight: FontWeight.w600)),
-              Text('Lbs or kg – no judgment, just insights!', style: AppStyles.fontSize14(fontWeight: FontWeight.w500, color: AppColors.subTextColor)),
+              Text('Lbs or kg – no judgment, just insights!',
+                  style: AppStyles.fontSize14(fontWeight: FontWeight.w500, color: AppColors.subTextColor)),
               SizedBox(height: 20.h),
               Row(
                 children: [
@@ -180,14 +207,16 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                   ),
                   SizedBox(width: 10.w),
                   Container(
-                    height: 60.h,
+                    height: 48.h,
                     decoration: BoxDecoration(
                       color: AppColors.colorD1D1D1,
                       borderRadius: BorderRadius.all(Radius.circular(8.r)),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(4.0),
+                      padding: EdgeInsets.all(4.r),
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           GestureDetector(
                             onTap: () {
@@ -196,15 +225,24 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                               });
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.r),
                               decoration: BoxDecoration(
-                                color: isLbsSelected ? AppColors.white : Colors.transparent,
+                                color: isLbsSelected
+                                    ? AppColors.white
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: Text('Lbs', style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.blackColor)),
+                              child: Center(
+                                child: Text(
+                                  'Lbs',
+                                  style: AppStyles.fontSize24(
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.blackColor),
+                                ),
+                              ),
                             ),
                           ),
-
+                          SizedBox(width: 8.w),
                           GestureDetector(
                             onTap: () {
                               setState(() {
@@ -212,21 +250,29 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                               });
                             },
                             child: Container(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.r),
                               decoration: BoxDecoration(
-                                color: isLbsSelected ? Colors.transparent : AppColors.white,
+                                color: isLbsSelected
+                                    ? Colors.transparent
+                                    : AppColors.white,
                                 borderRadius: BorderRadius.circular(8.r),
                               ),
-                              child: Text('kg', style: AppStyles.fontSize24(fontWeight: FontWeight.w500, color: AppColors.blackColor)),
+                              child: Center(
+                                child: Text(
+                                  'kg',
+                                  style: AppStyles.fontSize24(
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.blackColor),
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
+                  )
                 ],
               ),
-
               SizedBox(height: 40.h),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 4.h),
@@ -235,6 +281,7 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                     Get.toNamed(AppRoutes.personalizeQuestionScreenTwo);
                   },
                   text: 'Next',
+                  height: 50.h,
                 ),
               ),
               Padding(
@@ -243,9 +290,10 @@ class _PersonalizeQuestionScreenOneState extends State<PersonalizeQuestionScreen
                   color: AppColors.white,
                   borderColor: AppColors.white,
                   onTap: () {
-                    //Get.toNamed(AppRoutes.personalizeQuestionScreenTwo);
+                    // Get.toNamed(AppRoutes.personalizeQuestionScreenTwo);
                   },
                   text: 'Back',
+                  height: 50.h,
                 ),
               ),
               SizedBox(height: 4.h),

@@ -5,8 +5,8 @@ import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/screen/bottomMenuBar/user_bottom_menu..dart';
-import 'package:fertie_app/views/screen/home/facticityScoreCard.dart';
-import 'package:fertie_app/views/screen/home/homeScreenGraph.dart';
+import 'package:fertie_app/views/screen/home/facticity_score_card.dart';
+import 'package:fertie_app/views/screen/home/home_screen_graph.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -34,19 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
       ),*/
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.r),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 20.h),
-             /* CustomButton(onTap: () {
+              CustomButton(onTap: () {
                 Get.toNamed(AppRoutes.personalizeScreen);
               }, text: "Personalize Journey 🧡"
-              ),*/
+              ),
               SizedBox(height: 10.h),
               FactityScoreContainer(),
               SizedBox(height: 10.h),
-              LineChartSample(),
+              HomeScreenLineChart(),
               SizedBox(height: 10.h),
               Text('Today\'s Rundown :',
                   style: AppStyles.fontSize16(fontWeight: FontWeight.bold)),

@@ -99,7 +99,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(
             horizontal: widget.contentPaddingHorizontal ?? 12.w,
-            vertical: widget.contentPaddingVertical ?? 16.w),
+            vertical: widget.contentPaddingVertical ?? 8.h),
         filled: true,
         fillColor: widget.filColor ?? AppColors.colorF6F6F6,
         prefixIcon: Padding(
@@ -147,7 +147,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   _buildOutlineInputBorder() {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12.r),
+      borderRadius: BorderRadius.circular(4.r),
       borderSide: BorderSide(
         width: 1.w,
         color: AppColors.borderColor,
