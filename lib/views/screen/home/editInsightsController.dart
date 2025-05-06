@@ -1,5 +1,7 @@
+import 'package:fertie_app/utils/app_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -9,11 +11,11 @@ class EditInsightsController extends GetxController {
   RxString selectedMenstrual = ''.obs;
   final List<String> menstrualOption = ['Light', 'Medium', 'Heavy','Spotting'];
   // Map Menstrual to icons
-  final Map<String, IconData> menstrualIcons = {
-    'Light': Icons.face_retouching_natural,
-    'Medium': Icons.sick,
-    'Heavy': Icons.accessibility_new,
-    'Spotting': Icons.favorite_border,
+  final Map<String, Widget> menstrualIcons = {
+    'Light': SvgPicture.asset(AppIcons.bloodIcon),
+    'Medium': SvgPicture.asset(AppIcons.calenderIcon),
+    'Heavy': SvgPicture.asset(AppIcons.helpIcon),
+    'Spotting': SvgPicture.asset(AppIcons.notificationIcon),
   };
 
   //==================================>>> Mood

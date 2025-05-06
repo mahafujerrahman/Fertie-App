@@ -1,8 +1,12 @@
+import 'dart:io';
+
+import 'package:fertie_app/helpers/imageHelper.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,6 +25,8 @@ class _EditPersonalInformationScreenState
   TextEditingController nameCTRl = TextEditingController();
   TextEditingController birthdayCTRl = TextEditingController();
   TextEditingController emailCTRl = TextEditingController();
+  Uint8List? _image;
+  File? selectedImage;
 
 
   @override
@@ -73,6 +79,63 @@ class _EditPersonalInformationScreenState
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Center(
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        // Profile picture
+                        _image != null
+                            ? Container(
+                            width: 150.w,
+                            height: 150.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(width: 1.w, color: AppColors.white),
+                                image: DecorationImage(
+                                    image: MemoryImage(_image!),
+                                    fit: BoxFit.cover)))
+                            : Container(
+                          width: 150.w, height: 150.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(30.r)),
+                          ),
+                          child: ClipOval(
+                            child: Image.network(
+                              'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 10,
+                          right: 10,
+                          child: GestureDetector(
+                            onTap: () {
+                              ImagePickerHelper.showImagePickerOption(context, (File pickedImage) {
+                                setState(() {
+                                  selectedImage = pickedImage;
+                                  _image = pickedImage.readAsBytesSync();
+                                });
+                              });
+                            },
+                            child: Container(
+                              width: 40.w,
+                              height: 40.h,
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryColor,
+                                borderRadius: BorderRadius.all(Radius.circular(25.r)),
+                              ),
+                              child: Icon(
+                                Icons.camera_alt_outlined,
+                                size: 25,
+                                color: AppColors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   // Name Section
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 8.h),

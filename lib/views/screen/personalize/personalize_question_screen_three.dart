@@ -63,15 +63,16 @@ class _PersonalizeQuestionScreenThreeState extends State<PersonalizeQuestionScre
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-
               Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppIcons.lineIcon,width: 100.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 80.w),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Text('Optional Info', style: AppStyles.fontSize24(fontWeight: FontWeight.w900,color: AppColors.primaryColor)),
                   ),
-                  SvgPicture.asset(AppIcons.lineIcon,width: 100.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 80.w),
                 ],
               ),
               Padding(

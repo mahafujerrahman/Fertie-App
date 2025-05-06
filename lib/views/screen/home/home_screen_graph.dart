@@ -4,14 +4,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LineChartSample extends StatefulWidget {
-  const LineChartSample({super.key});
+class HomeScreenLineChart extends StatefulWidget {
+  const HomeScreenLineChart({super.key});
 
   @override
-  State<LineChartSample> createState() => _LineChartSampleState();
+  State<HomeScreenLineChart> createState() => _HomeScreenLineChartState();
 }
 
-class _LineChartSampleState extends State<LineChartSample> {
+class _HomeScreenLineChartState extends State<HomeScreenLineChart> {
   List<Color> gradientColors = [
     AppColors.primaryColor,
     AppColors.primaryColor,
@@ -43,80 +43,63 @@ class _LineChartSampleState extends State<LineChartSample> {
                 style: AppStyles.fontSize12(fontWeight: FontWeight.w600)
               ),
               AspectRatio(
-                aspectRatio: 1.70,
+                aspectRatio: 1.50,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     right: 18,
                     left: 12,
                     top: 24,
-                    bottom: 12,
                   ),
                   child: LineChart(
                     showAvg ? avgData() : mainData(),
                   ),
                 ),
               ),
+              buildBottomLabel()
             ],
           ),
         ),
-      /*  SizedBox(
-          width: 120,
-          height: 80,
-          child: TextButton(
-            onPressed: () {
-              setState(() {
-                showAvg = !showAvg;
-              });
-            },
-            child: Container(
-              color: AppColors.primaryColor,
-              child: Text(
-                'Avg',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: showAvg
-                      ? Colors.white.withValues(alpha: 0.5)
-                      : Colors.black,
-                ),
-              ),
-            ),
-          ),
-        ),*/
       ],
     );
   }
 
   Widget bottomTitleWidgets(double value, TitleMeta meta) {
-    const style = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 16,
-    );
+    var style = AppStyles.fontSize14(fontWeight: FontWeight.w600);
     Widget text;
     switch (value.toInt()) {
 
       case 2:
-        text = const Text('2', style: style);
+        text = Text('2', style: style);
         break;
       case 4:
-        text = const Text('4', style: style);
+        text =  Text('4', style: style);
         break;
       case 6:
-        text = const Text('6', style: style);
+        text =  Text('6', style: style);
         break;
       case 8:
-        text = const Text('8', style: style);
+        text =  Text('8', style: style);
         break;
       case 10:
-        text = const Text('10', style: style);
+        text =  Text('10', style: style);
         break;
       default:
-        text = const Text('', style: style);
+        text =  Text('', style: style);
         break;
     }
 
     return SideTitleWidget(
       meta: meta,
       child: text,
+    );
+  }
+  Widget buildBottomLabel() {
+    return Padding(
+      padding:     EdgeInsets.only(left: 40.r),
+      child: Text(
+        'Day of cycle',
+        style: TextStyle(fontSize: 12, color: AppColors.greyColor),
+      ),
     );
   }
 
@@ -151,6 +134,7 @@ class _LineChartSampleState extends State<LineChartSample> {
 
     return Text(text, style: style, textAlign: TextAlign.left);
   }
+
 
   LineChartData mainData() {
     return LineChartData(
@@ -198,7 +182,7 @@ class _LineChartSampleState extends State<LineChartSample> {
         ),
       ),
       borderData: FlBorderData(
-        show: true,
+        show: false,
         border: Border.all(color: AppColors.primaryColor),
       ),
       minX: 0,
@@ -321,12 +305,8 @@ class _LineChartSampleState extends State<LineChartSample> {
             show: true,
             gradient: LinearGradient(
               colors: [
-                ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                    .lerp(0.2)!
-                    .withValues(alpha: 0.1),
-                ColorTween(begin: gradientColors[0], end: gradientColors[1])
-                    .lerp(0.2)!
-                    .withValues(alpha: 0.1),
+                ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!.withValues(alpha: 0.1),
+                ColorTween(begin: gradientColors[0], end: gradientColors[1]).lerp(0.2)!.withValues(alpha: 0.1),
               ],
             ),
           ),

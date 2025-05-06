@@ -1,15 +1,27 @@
+import 'dart:io';
+
+import 'package:fertie_app/helpers/imageHelper.dart';
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-class PersonalInformationScreen extends StatelessWidget {
+class PersonalInformationScreen extends StatefulWidget {
   const PersonalInformationScreen({super.key});
+
+  @override
+  State<PersonalInformationScreen> createState() => _PersonalInformationScreenState();
+}
+
+class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
+  Uint8List? _image;
+  File? selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +65,40 @@ class PersonalInformationScreen extends StatelessWidget {
                                 child: SvgPicture.asset(AppIcons.editIcon,color:AppColors.primaryColor))
                           ],
                         ),
-                        
+
                       ],
                     ),
                     SizedBox(height: 16.h),
+                    Center(
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          // Profile picture
+                          _image != null
+                              ? Container(
+                              width: 150.w,
+                              height: 150.h,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(width: 1.w, color: AppColors.white),
+                                  image: DecorationImage(
+                                      image: MemoryImage(_image!),
+                                      fit: BoxFit.cover)))
+                              : Container(
+                            width: 150.w, height: 150.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(30.r)),
+                            ),
+                            child: ClipOval(
+                              child: Image.network(
+                                'http://www.clker.com/cliparts/Z/J/g/U/V/b/avatar-male-silhouette-md.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Text('Name'),
                     Text('Linfsay',style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
                     SizedBox(height: 16.h),

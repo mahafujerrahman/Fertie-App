@@ -1,11 +1,8 @@
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
-import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
-import 'package:fertie_app/views/base/custom_text.dart';
-import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,6 +42,16 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
       initialDate: startDate,
       firstDate: DateTime(1900),
       lastDate: DateTime(2100),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: AppColors.primaryColor,
+            hintColor: AppColors.redColor,
+            buttonTheme: ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
     );
 
     if (picked != null && picked != startDate) {
@@ -75,7 +82,7 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
             children: [
               // Conditions
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: EdgeInsets.symmetric(vertical: 8.h),
                 child: Text(
                   'How long does your period usually last?',
                   style: AppStyles.fontSize24(fontWeight: FontWeight.w600),
@@ -114,11 +121,11 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           InkWell(
-                              onTap: (){
-                                _decrementPeriod();
-                              },
-                              child: SvgPicture.asset(AppIcons.minusIcon)),
-
+                            onTap: () {
+                              _decrementPeriod();
+                            },
+                            child: SvgPicture.asset(AppIcons.minusIcon),
+                          ),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 20.r),
                             child: Container(
@@ -126,8 +133,9 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                               height: 60.h,
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                color:  AppColors.colorFCF5F4,
-                                border: Border.all(width: 1.w, color: AppColors.subTextColor),
+                                color: AppColors.colorFCF5F4,
+                                border: Border.all(
+                                    width: 1.w, color: AppColors.subTextColor),
                                 borderRadius: BorderRadius.circular(4.r),
                               ),
                               child: Text(
@@ -139,31 +147,34 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                               ),
                             ),
                           ),
-
                           InkWell(
-                              onTap: (){
-                                _incrementPeriod();
-                              },
-                              child: SvgPicture.asset(AppIcons.plusIcon)),
+                            onTap: () {
+                              _incrementPeriod();
+                            },
+                            child: SvgPicture.asset(AppIcons.plusIcon),
+                          ),
                         ],
                       ),
-
-                      Text('Days', style: AppStyles.fontSize24(fontWeight: FontWeight.w600),
+                      Text(
+                        'Days',
+                        style:
+                        AppStyles.fontSize24(fontWeight: FontWeight.w600),
                       ),
                       SizedBox(height: 30.h),
                       // Start Date Section
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Start Date', style: AppStyles.fontSize16(fontWeight: FontWeight.w600)),
+                          Text(
+                            'Start Date',
+                            style: AppStyles.fontSize16(fontWeight: FontWeight.w600),
+                          ),
                           Text(
                             'Select your start date, then the end date \nwill set automatically based on \nthe period length.',
-
-                            style:  AppStyles.fontSize16(color: AppColors.subTextColor),
+                            style: AppStyles.fontSize14(color: AppColors.subTextColor),
                           ),
                         ],
                       ),
-
                       SizedBox(height: 20.h),
                       GestureDetector(
                         onTap: () => _selectDate(context),
@@ -171,33 +182,40 @@ class _PeriodLengthScreenState extends State<PeriodLengthScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Container(
-                              width: 185.w,
-                              height: 40.h,
+                              width: 159.w,
+                              height: 32.h,
                               decoration: BoxDecoration(
-                                border: Border.all(width: 1.w, color: AppColors.subTextColor),
+                                border: Border.all(
+                                    width: 1.w, color: AppColors.subTextColor),
                                 borderRadius: BorderRadius.circular(4.r),
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    '${_getMonthName(startDate.month)} ${startDate.day}, ${startDate.year}',
-                                    style: AppStyles.fontSize16(fontWeight: FontWeight.w600),
-                                  ),
-                                  SizedBox(width: 6.w),
-                                 SvgPicture.asset(AppIcons.calenderblackColor,height: 20.h)
-                                ],
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4.r),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '${_getMonthName(startDate.month)} ${startDate.day}, ${startDate.year}',
+                                      style: AppStyles.fontSize14(fontWeight: FontWeight.w600),
+                                    ),
+                                    SizedBox(width: 4.w),
+                                    SvgPicture.asset(
+                                      AppIcons.calenderblackColor,
+                                      height: 20.h,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
-                            SizedBox(width: 6.w),
+                            SizedBox(width: 2.w),
                             Text(
                               'to',
-                              style: AppStyles.fontSize16(color: AppColors.subTextColor),
+                              style: AppStyles.fontSize14(color: AppColors.subTextColor),
                             ),
-                            SizedBox(width: 8.w),
+                            SizedBox(width: 4.w),
                             Text(
                               '${_getMonthName(endDate.month)} ${endDate.day}, ${endDate.year}',
-                              style: AppStyles.fontSize16(color: AppColors.subTextColor,fontWeight: FontWeight.w600),
+                              style: AppStyles.fontSize14(color: AppColors.subTextColor, fontWeight: FontWeight.w600),
                             ),
                           ],
                         ),
