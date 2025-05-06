@@ -1,10 +1,8 @@
 import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
-import 'package:fertie_app/utils/app_images.dart';
 import 'package:fertie_app/utils/style.dart';
 import 'package:fertie_app/views/base/custom_button.dart';
-import 'package:fertie_app/views/base/custom_text.dart';
 import 'package:fertie_app/views/base/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -46,12 +44,12 @@ class _PersonalizeQuestionScreenFourState extends State<PersonalizeQuestionScree
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(AppIcons.lineIcon,width: 70.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 50.w),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8.w),
                     child: Text('Pregnancy History', style: AppStyles.fontSize24(fontWeight: FontWeight.w900,color: AppColors.primaryColor)),
                   ),
-                  SvgPicture.asset(AppIcons.lineIcon,width: 70.w),
+                  SvgPicture.asset(AppIcons.lineIcon,width: 50.w),
                 ],
               ),
               SizedBox(height: 20.h),

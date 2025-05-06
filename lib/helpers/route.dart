@@ -27,7 +27,7 @@ import 'package:fertie_app/views/screen/profile/editPersonalInforamtion.dart';
 import 'package:fertie_app/views/screen/profile/help/helpScreen.dart';
 import 'package:fertie_app/views/screen/profile/lapTest/labDetsils_screen.dart';
 import 'package:fertie_app/views/screen/profile/personalInformationScreen.dart';
-import 'package:fertie_app/views/screen/profile/profileScreen.dart';
+import 'package:fertie_app/views/screen/profile/profile_screen.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 

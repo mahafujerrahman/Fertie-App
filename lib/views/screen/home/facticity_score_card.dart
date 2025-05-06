@@ -4,6 +4,7 @@ import 'package:fertie_app/helpers/route.dart';
 import 'package:fertie_app/utils/app_colors.dart';
 import 'package:fertie_app/utils/app_icons.dart';
 import 'package:fertie_app/utils/style.dart';
+import 'package:fertie_app/views/screen/home/customCircularProgressIndicator.dart' show CustomCircularProgressIndicator;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +25,7 @@ class _FactityScoreContainerState extends State<FactityScoreContainer> {
   void initState() {
     super.initState();
 
-    Timer.periodic(Duration(seconds: 2), (Timer timer) {
+    Timer.periodic(Duration(seconds: 1), (Timer timer) {
       if (_currentPage < 4) {
         _currentPage++;
       } else {
@@ -70,23 +71,33 @@ class _FactityScoreContainerState extends State<FactityScoreContainer> {
                           child: Stack(
                             alignment: Alignment.center,
                             children: [
-                              SizedBox(
-                                width: 120.w,
-                                height: 110.h,
-                                child: CircularProgressIndicator(
-                                  value: 0.82,
-                                  strokeWidth: 10.w,
-                                  backgroundColor: AppColors.white,
-                                  valueColor: AlwaysStoppedAnimation<Color>(AppColors.primaryColor),
+                              // Container for the background
+                              Container(
+                                width: 150.w,
+                                height: 130.h,
+                                decoration: BoxDecoration(
+                                  color: AppColors.white,
+                                  shape: BoxShape.circle,
                                 ),
+                              ),
+
+                              SizedBox(
+                                width: 130.w,
+                                height: 120.h,
+                                child: CustomCircularProgressIndicator(
+                                  value: 0.82,
+                                  strokeWidth: 10.0,
+                                  backgroundColor: AppColors.color594756,
+                                  valueColor: AppColors.primaryColor
+                                )
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Text('Facticity', style: AppStyles.fontSize20(fontWeight: FontWeight.w600)),
-                                  Text('Score', style: AppStyles.fontSize18(fontWeight: FontWeight.w600)),
-                                  Text('82', style: AppStyles.fontSize20(fontWeight: FontWeight.w800)),
+                                  Text('Facticity', style: AppStyles.fontSize20(fontWeight: FontWeight.w600,color: AppColors.color594756)),
+                                  Text('Score', style: AppStyles.fontSize18(fontWeight: FontWeight.w600,color: AppColors.color594756)),
+                                  Text('82', style: AppStyles.fontSize20(fontWeight: FontWeight.w800,color: AppColors.color594756)),
                                 ],
                               ),
                             ],
@@ -96,13 +107,14 @@ class _FactityScoreContainerState extends State<FactityScoreContainer> {
                           padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 12.w),
                           child: Row(
                             children: [
-                              Text('Edit Insights'),
+                              Text('Edit Insights',style: AppStyles.fontSize14(fontWeight: FontWeight.w800,color: AppColors.color594756)),
                               SizedBox(width: 8.w),
                               InkWell(
-                                  onTap: () {
-                                    Get.toNamed(AppRoutes.editInsightsScreen);
-                                  },
-                                  child: SvgPicture.asset(AppIcons.editIcon)),
+                                onTap: () {
+                                  Get.toNamed(AppRoutes.editInsightsScreen);
+                                },
+                                child: SvgPicture.asset(AppIcons.editIcon),
+                              ),
                             ],
                           ),
                         ),
@@ -110,6 +122,7 @@ class _FactityScoreContainerState extends State<FactityScoreContainer> {
                     ),
                   ),
                 ),
+
                 // PageView for horizontal scrolling
                 Expanded(
                   child: Padding(
